@@ -9,6 +9,7 @@ import java.util.Properties;
 
 public class Conexao {
     //declarar 4 variavel com seu tipo e alocar o valor para cada:
+
     private String driver;
     private String url;
     private String usuario;
@@ -25,8 +26,7 @@ public class Conexao {
     //metodo com o parametros de configuração das variaveis de ambiente
     private void carregarConfiguracoes() {
         Properties prop = new Properties();
-        try (InputStream inputPropsConfig = getClass().getClassLoader().getResourceAsStream
-                ("config.properties")) {
+        try (InputStream inputPropsConfig = getClass().getClassLoader().getResourceAsStream("config.properties")) {
             prop.load(inputPropsConfig);
             driver = prop.getProperty("driver");
             url = prop.getProperty("url");
