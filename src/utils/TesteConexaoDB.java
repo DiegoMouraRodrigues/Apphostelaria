@@ -11,9 +11,11 @@ o driver JDBC para MySQL*/
 import dao.*;
 import model.Adicionais;
 import model.Clientes;
+import model.Pessoa;
 import model.Usuarios;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class TesteConexaoDB {
     public static void main(String[] args) {
@@ -24,22 +26,43 @@ public class TesteConexaoDB {
             System.out.println("Conexão estabelcida com sucesso!");
 
             try {
-               // UsuariosDAO usuariosDAO = new UsuariosDAO();
-              //  usuariosDAO.inserirUsuarios();
+                //  UsuariosDAO usuariosDAO = new UsuariosDAO();
+                // usuariosDAO.inserirUsuarios();
 
-                 ClientesDAO clientesDAO = new ClientesDAO();
-                clientesDAO.inserirCliente();
+                  //  UsuariosDAO usuariosDAO = new UsuariosDAO();
+                   // usuariosDAO.alterarUsuarios();
 
-                 QuartosDAO quartosDAO = new QuartosDAO();
-                 quartosDAO.inserirQuartos();
+                // ClientesDAO clientesDAO = new ClientesDAO();
+                // clientesDAO.inserirCliente();
+
+                ClientesDAO clientesDAO = new ClientesDAO();
+                clientesDAO.alterarCliente();
+
+               //  QuartosDAO quartosDAO = new QuartosDAO();
+               //  quartosDAO.inserirQuartos();
+
+                QuartosDAO quartosDAO = new QuartosDAO();
+                quartosDAO.alterarQuartos();
+
+
+
+              //  PermissaoDAO permissaoDAO = new PermissaoDAO();
+              //  permissaoDAO.inserirPermissao();
 
                 PermissaoDAO permissaoDAO = new PermissaoDAO();
-                permissaoDAO.inserirPermissao();
+                permissaoDAO.alterarPermissao();
+
+               // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+              //  adicionaisDAO.inserirAdicionais();
 
                 AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
-                adicionaisDAO.inserirAdicionais();
+                adicionaisDAO.alterarAdicionais();
 
+               //PedidosDAO pedidosDAO = new PedidosDAO();
+                //pedidosDAO.inserirPedidos();
 
+                PedidosDAO pedidosDAO = new PedidosDAO();
+                pedidosDAO.alterarPedidos();
 
                 System.out.println("Usuario Inserido com sucesso!");
                 condb.close();

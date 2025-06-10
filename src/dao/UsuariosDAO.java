@@ -19,12 +19,13 @@ public class UsuariosDAO {
 
             PreparedStatement novoUsuario = conndb.prepareStatement("insert into Usuarios(nome, email, senha, id_perm_fk) values(?,?,md5(?), ?)");
             //setar os parametros
-            novoUsuario.setString(1,"Matheus");
-            novoUsuario.setString(2,"matheus@hotmail.com");
-            novoUsuario.setString(3,"123");
+            novoUsuario.setString(1,"luis");
+            novoUsuario.setString(2,"luis@hotmail.com");
+            novoUsuario.setString(3,"1234");
             novoUsuario.setInt(4,1);
 
             int linhaAfetada = novoUsuario.executeUpdate();
+            conndb.close(); //Encerrar conexão apos insersão
             return linhaAfetada > 0;
         }
         catch (Exception erro){
@@ -32,4 +33,43 @@ public class UsuariosDAO {
             return false;
         }
     }
+
+    public boolean deleteUsuarios() {
+      try {
+          Connection conndb = conexao.conectar();
+
+          PreparedStatement removeUsuarios = conndb.prepareStatement("update usuarios( nome, email, senha, id_perm_fk) values(?,?,md5(?), ?");
+          removeUsuarios.setInt(1,1);
+
+          int linhaAfetada = removeUsuarios.executeUpdate();
+          conndb.close();
+          return linhaAfetada > 0;
+      }
+      catch (Exception erro){
+          System.out.println("Erro ao deletar usuarios" + erro);
+          return false;
+      }
+    }
+
+    public boolean alterarUsuarios() {
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement usuarioAlterado = conndb.prepareStatement("update usuarios Set nome = ?, email = ?, senha = md5(?), id_perm_fk = ? where id = ?");
+
+            usuarioAlterado.setString(1,"beatrice");
+            usuarioAlterado.setString(2, "beatrice@hotmail.com");
+            usuarioAlterado.setString(3,"1235");
+            usuarioAlterado.setInt(4,1);
+            usuarioAlterado.setInt(5,6);
+
+            int linhaAlterada = usuarioAlterado.executeUpdate();
+            conndb.close();
+            return linhaAlterada > 0;
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao alterar usuarios" + erro);
+            return false;
+        }
+    }
+
 }
