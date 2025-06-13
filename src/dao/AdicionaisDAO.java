@@ -66,17 +66,16 @@ public class AdicionaisDAO {
     }
 
     public void pesquisarAdicionais() {
-
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement buscarAdicionais = conndb.prepareStatement("select nome, preco from adicionais where id = ?");
+            PreparedStatement buscarAdicionais = conndb.prepareStatement("SELECT nome, preco FROM adicionais where id = ?");
             buscarAdicionais.setInt(1,1);
             ResultSet resultado = buscarAdicionais.executeQuery();
 
             while (resultado.next()){
                 String nome = resultado.getString("nome");
-                String preco = resultado.getString("preço");
-                System.out.println("nome: " + nome + " preço " + preco);
+                double preco = resultado.getDouble("preco");
+                System.out.println("nome: " + nome);
             }
             conndb.close();
         }

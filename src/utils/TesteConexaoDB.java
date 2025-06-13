@@ -32,6 +32,10 @@ public class TesteConexaoDB {
                 //  UsuariosDAO usuariosDAO = new UsuariosDAO();
                 // usuariosDAO.alterarUsuarios();
 
+               // UsuariosDAO usuariosDAO = new UsuariosDAO();
+               // usuariosDAO.pesquisarUsuarios();
+//                System.out.println("Usuario Inserido com sucesso!");
+
                 // ClientesDAO clientesDAO = new ClientesDAO();
                 // clientesDAO.inserirCliente();
 
@@ -50,11 +54,15 @@ public class TesteConexaoDB {
                 //PermissaoDAO permissaoDAO = new PermissaoDAO();
                 //permissaoDAO.alterarPermissao();
 
-                // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
-                //  adicionaisDAO.inserirAdicionais();
+                 AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+                 adicionaisDAO.pesquisarAdicionais();
 
                 // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
                 //adicionaisDAO.alterarAdicionais();
+
+               // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+               // adicionaisDAO.pesquisarAdicionais();
+
 
                 //PedidosDAO pedidosDAO = new PedidosDAO();
                 //pedidosDAO.inserirPedidos();
@@ -62,8 +70,7 @@ public class TesteConexaoDB {
                 //PedidosDAO pedidosDAO = new PedidosDAO();
                 //pedidosDAO.alterarPedidos();
 
-                System.out.println("Usuario Inserido com sucesso!");
-                condb.close();
+
                 System.out.println("Conexão encerrada!");
             }
 
