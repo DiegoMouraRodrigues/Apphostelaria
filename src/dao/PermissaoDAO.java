@@ -4,6 +4,7 @@ import utils.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class PermissaoDAO {
     private Conexao conexao = new Conexao();
@@ -54,6 +55,25 @@ public class PermissaoDAO {
         catch (Exception erro){
             System.out.println("Erro ao alterar as permissão" + erro);
             return false;
+        }
+    }
+
+    public void pesquisarpermissao() {
+
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement buscarPermissao = conndb.prepareStatement("select nome, from Permissao where id = ?");
+            buscarPermissao.setInt(1,1);
+            ResultSet resultado = buscarPermissao.executeQuery();
+
+            while (resultado.next()){
+                String nome = resultado.getString("nome");
+                System.out.println("nome: " + nome);
+            }
+            conndb.close();
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao pesquisar a permissão" + erro);
         }
     }
 }

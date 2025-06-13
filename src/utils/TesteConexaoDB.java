@@ -29,40 +29,38 @@ public class TesteConexaoDB {
                 //  UsuariosDAO usuariosDAO = new UsuariosDAO();
                 // usuariosDAO.inserirUsuarios();
 
-                  //  UsuariosDAO usuariosDAO = new UsuariosDAO();
-                   // usuariosDAO.alterarUsuarios();
+                //  UsuariosDAO usuariosDAO = new UsuariosDAO();
+                // usuariosDAO.alterarUsuarios();
 
                 // ClientesDAO clientesDAO = new ClientesDAO();
                 // clientesDAO.inserirCliente();
 
-                ClientesDAO clientesDAO = new ClientesDAO();
-                clientesDAO.alterarCliente();
+                // ClientesDAO clientesDAO = new ClientesDAO();
+                //clientesDAO.alterarClientes();
 
-               //  QuartosDAO quartosDAO = new QuartosDAO();
-               //  quartosDAO.inserirQuartos();
+                //  QuartosDAO quartosDAO = new QuartosDAO();
+                //  quartosDAO.inserirQuartos();
 
-                QuartosDAO quartosDAO = new QuartosDAO();
-                quartosDAO.alterarQuartos();
+                // QuartosDAO quartosDAO = new QuartosDAO();
+                 //quartosDAO.alterarQuartos();
 
+                //  PermissaoDAO permissaoDAO = new PermissaoDAO();
+                //  permissaoDAO.inserirPermissao();
 
+                //PermissaoDAO permissaoDAO = new PermissaoDAO();
+                //permissaoDAO.alterarPermissao();
 
-              //  PermissaoDAO permissaoDAO = new PermissaoDAO();
-              //  permissaoDAO.inserirPermissao();
+                // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+                //  adicionaisDAO.inserirAdicionais();
 
-                PermissaoDAO permissaoDAO = new PermissaoDAO();
-                permissaoDAO.alterarPermissao();
+                // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+                //adicionaisDAO.alterarAdicionais();
 
-               // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
-              //  adicionaisDAO.inserirAdicionais();
-
-                AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
-                adicionaisDAO.alterarAdicionais();
-
-               //PedidosDAO pedidosDAO = new PedidosDAO();
+                //PedidosDAO pedidosDAO = new PedidosDAO();
                 //pedidosDAO.inserirPedidos();
 
-                PedidosDAO pedidosDAO = new PedidosDAO();
-                pedidosDAO.alterarPedidos();
+                //PedidosDAO pedidosDAO = new PedidosDAO();
+                //pedidosDAO.alterarPedidos();
 
                 System.out.println("Usuario Inserido com sucesso!");
                 condb.close();

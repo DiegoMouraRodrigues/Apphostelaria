@@ -4,6 +4,7 @@ import utils.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class AdicionaisDAO {
 
@@ -64,4 +65,23 @@ public class AdicionaisDAO {
         }
     }
 
+    public void pesquisarAdicionais() {
+
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement buscarAdicionais = conndb.prepareStatement("select nome, preco from adicionais where id = ?");
+            buscarAdicionais.setInt(1,1);
+            ResultSet resultado = buscarAdicionais.executeQuery();
+
+            while (resultado.next()){
+                String nome = resultado.getString("nome");
+                String preco = resultado.getString("preço");
+                System.out.println("nome: " + nome + " preço " + preco);
+            }
+            conndb.close();
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao pesquisar o adicional " + erro);
+        }
+    }
 }

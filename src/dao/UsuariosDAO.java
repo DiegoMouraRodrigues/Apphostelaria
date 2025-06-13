@@ -5,6 +5,7 @@ import utils.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UsuariosDAO {
 
@@ -72,4 +73,24 @@ public class UsuariosDAO {
         }
     }
 
+    //query Select
+    public void pesquisarUsuarios() {
+
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement buscarUsuario = conndb.prepareStatement("select nome, email from usuarios where id_perm_fk = ?");
+            buscarUsuario.setInt(1,1);
+            ResultSet resultado = buscarUsuario.executeQuery();
+
+            while (resultado.next()){
+                String nome = resultado.getString("nome");
+                String email = resultado.getString("email");
+                System.out.println("nome: " + nome + " email: " + email);
+            }
+            conndb.close();
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao pesquisar usuario" + erro);
+        }
+    }
 }

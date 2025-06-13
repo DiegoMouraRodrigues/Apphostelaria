@@ -5,6 +5,7 @@ import utils.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class PedidosDAO {
 
@@ -50,7 +51,7 @@ public class PedidosDAO {
     public boolean alterarPedidos() {
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement pedidoAlterado = conndb.prepareStatement("update pedidos Set id_usuario_fk = ?, id_cliente_fk = ? pagamento = ? where id = ?");
+            PreparedStatement pedidoAlterado = conndb.prepareStatement("update pedidos Set id_usuario_fk = ?, id_cliente_fk = ?, pagamento = ? where id = ?");
 
             pedidoAlterado.setInt(1,3);
             pedidoAlterado.setInt(2,2);
@@ -65,6 +66,25 @@ public class PedidosDAO {
         catch (Exception erro){
             System.out.println("Erro ao alterar os pedidos" + erro);
             return false;
+        }
+    }
+
+    public void pesquisarPedidos() {
+
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement buscarPedidos = conndb.prepareStatement("select pagamento from Pedidos  where id_usuario_fk = ?, id_cliente_fk = ? ");
+            buscarPedidos.setInt(1,1);
+            ResultSet resultado = buscarPedidos.executeQuery();
+
+            while (resultado.next()){
+                String pagamento = resultado.getString("pagamento");
+                System.out.println("pagamento: " + pagamento);
+            }
+            conndb.close();
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao pesquisar o pedido" + erro);
         }
     }
 }

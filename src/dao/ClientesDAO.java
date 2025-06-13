@@ -5,6 +5,7 @@ import utils.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class ClientesDAO {
     private Conexao conexao = new Conexao();
@@ -47,10 +48,10 @@ public class ClientesDAO {
         }
     }
 
-    public boolean alterarCliente() {
+    public boolean alterarClientes() {
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement clienteAlterado = conndb.prepareStatement("update cliente Set nome = ?, email = ?, cpf = ?, telefone = ? where id = ?");
+            PreparedStatement clienteAlterado = conndb.prepareStatement("update clientes Set nome = ?, email = ?, cpf = ?, telefone = ? where id = ?");
 
             clienteAlterado.setString(1,"marcio");
             clienteAlterado.setString(2,"marcio@hotmail.com");
@@ -65,6 +66,28 @@ public class ClientesDAO {
         catch (Exception erro){
             System.out.println("Erro ao alterar os clientes" + erro);
             return false;
+        }
+    }
+
+    public void pesquisarClientes() {
+
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement buscarCliente = conndb.prepareStatement("select nome, email, cpf, telefone from clientes where id = ?");
+            buscarCliente.setInt(1,1);
+            ResultSet resultado = buscarCliente.executeQuery();
+
+            while (resultado.next()){
+                String nome = resultado.getString("nome");
+                String email = resultado.getString("email");
+                String cpf = resultado.getString("cpf");
+                String telefone = resultado.getString("telefone");
+                System.out.println("nome: " + nome + " email: " + email + " cpf: " + cpf + " telefone: " + telefone);
+            }
+            conndb.close();
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao pesquisar os cliente" + erro);
         }
     }
 }
