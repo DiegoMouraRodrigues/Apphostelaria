@@ -34,10 +34,10 @@ public class AdicionaisDAO {
         try {
             Connection conndb = conexao.conectar();
 
-            PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
-            removeUsuarios.setInt(1,1);
+            PreparedStatement deletaAdicionais = conndb.prepareStatement("DELETE FROM adicionais WHERE id = ?");
+            deletaAdicionais.setInt(1,4);
 
-            int linhaAfetada = removeUsuarios.executeUpdate();
+            int linhaAfetada = deletaAdicionais.executeUpdate();
             conndb.close();
             return linhaAfetada > 0;
         }
@@ -69,13 +69,13 @@ public class AdicionaisDAO {
         try {
             Connection conndb = conexao.conectar();
             PreparedStatement buscarAdicionais = conndb.prepareStatement("SELECT nome, preco FROM adicionais where id = ?");
-            buscarAdicionais.setInt(1,1);
+            buscarAdicionais.setInt(1,3);
             ResultSet resultado = buscarAdicionais.executeQuery();
 
             while (resultado.next()){
                 String nome = resultado.getString("nome");
                 double preco = resultado.getDouble("preco");
-                System.out.println("nome: " + nome);
+                System.out.println("nome: " + nome + " preco: " + preco);
             }
             conndb.close();
         }

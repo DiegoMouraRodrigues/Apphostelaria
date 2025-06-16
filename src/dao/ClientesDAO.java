@@ -35,10 +35,10 @@ public class ClientesDAO {
         try {
             Connection conndb = conexao.conectar();
 
-            PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
-            removeUsuarios.setInt(1,1);
+            PreparedStatement deletaCliente = conndb.prepareStatement("DELETE FROM clientes WHERE id = ?");
+            deletaCliente.setInt(1,1);
 
-            int linhaAfetada = removeUsuarios.executeUpdate();
+            int linhaAfetada =deletaCliente.executeUpdate();
             conndb.close();
             return linhaAfetada > 0;
         }
@@ -73,8 +73,8 @@ public class ClientesDAO {
 
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement buscarCliente = conndb.prepareStatement("select nome, email, cpf, telefone from clientes where id = ?");
-            buscarCliente.setInt(1,1);
+            PreparedStatement buscarCliente = conndb.prepareStatement("SELECT nome, email, cpf, telefone FROM clientes WHERE id = ?;");
+            buscarCliente.setInt(1,3); //
             ResultSet resultado = buscarCliente.executeQuery();
 
             while (resultado.next()){
@@ -85,9 +85,8 @@ public class ClientesDAO {
                 System.out.println("nome: " + nome + " email: " + email + " cpf: " + cpf + " telefone: " + telefone);
             }
             conndb.close();
-        }
-        catch (Exception erro){
-            System.out.println("Erro ao pesquisar os cliente" + erro);
+        }catch (Exception erro){
+            System.out.println("Erro ao pesquisar os cliente" + erro.getMessage());
         }
     }
 }

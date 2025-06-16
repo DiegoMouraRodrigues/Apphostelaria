@@ -35,10 +35,10 @@ public class PedidosDAO {
         try {
             Connection conndb = conexao.conectar();
 
-            PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
-            removeUsuarios.setInt(1,1);
+            PreparedStatement deletePedidos = conndb.prepareStatement("DELETE FROM pedidos WHERE id = ?");
+            deletePedidos.setInt(1,1);
 
-            int linhaAfetada = removeUsuarios.executeUpdate();
+            int linhaAfetada = deletePedidos.executeUpdate();
             conndb.close();
             return linhaAfetada > 0;
         }
@@ -73,8 +73,11 @@ public class PedidosDAO {
 
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement buscarPedidos = conndb.prepareStatement("select pagamento from Pedidos  where id_usuario_fk = ?, id_cliente_fk = ? ");
+            PreparedStatement buscarPedidos = conndb.prepareStatement("select pagamento from Pedidos  where id = ? ");
             buscarPedidos.setInt(1,1);
+
+
+
             ResultSet resultado = buscarPedidos.executeQuery();
 
             while (resultado.next()){

@@ -41,10 +41,10 @@ public class QuartosDAO {
         try {
             Connection conndb = conexao.conectar();
 
-            PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
-            removeUsuarios.setInt(1,1);
+            PreparedStatement deletaQuarto = conndb.prepareStatement("DELETE FROM quartos WHERE id = ?");
+            deletaQuarto.setInt(1,1);
 
-            int linhaAfetada = removeUsuarios.executeUpdate();
+            int linhaAfetada = deletaQuarto.executeUpdate();
             conndb.close();
             return linhaAfetada > 0;
         }
@@ -81,8 +81,8 @@ public class QuartosDAO {
 
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement buscarQuartos = conndb.prepareStatement("select nome, numero, camaSolteiro, camaCasal, disponivel, preco   from Quartos where id = ?");
-            buscarQuartos.setInt(1,1);
+            PreparedStatement buscarQuartos = conndb.prepareStatement("select nome, numero, camaSolteiro, camaCasal, disponivel, preco   from Quartos where id = ?;");
+            buscarQuartos.setInt(1,2);
             ResultSet resultado = buscarQuartos.executeQuery();
 
             while (resultado.next()){

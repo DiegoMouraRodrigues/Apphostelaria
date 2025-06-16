@@ -9,10 +9,7 @@ senha e nome do banco de dados estão corretos, utilizando-se
 o driver JDBC para MySQL*/
 
 import dao.*;
-import model.Adicionais;
-import model.Clientes;
-import model.Pessoa;
-import model.Usuarios;
+import model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,7 +31,10 @@ public class TesteConexaoDB {
 
                // UsuariosDAO usuariosDAO = new UsuariosDAO();
                // usuariosDAO.pesquisarUsuarios();
-//                System.out.println("Usuario Inserido com sucesso!");
+              //  System.out.println("Usuario Inserido com sucesso!");
+
+                //UsuariosDAO usuariosDAO = new UsuariosDAO();
+                //usuariosDAO.deleteUsuarios();
 
                 // ClientesDAO clientesDAO = new ClientesDAO();
                 // clientesDAO.inserirCliente();
@@ -42,20 +42,35 @@ public class TesteConexaoDB {
                 // ClientesDAO clientesDAO = new ClientesDAO();
                 //clientesDAO.alterarClientes();
 
+                //ClientesDAO clientesDAO = new ClientesDAO();
+                //clientesDAO.pesquisarClientes();
+
+                //ClientesDAO clientesDAO = new ClientesDAO();
+                //clientesDAO.deletarCliente();
+
                 //  QuartosDAO quartosDAO = new QuartosDAO();
                 //  quartosDAO.inserirQuartos();
 
                 // QuartosDAO quartosDAO = new QuartosDAO();
                  //quartosDAO.alterarQuartos();
 
+                //QuartosDAO quartosDAO = new QuartosDAO();
+                //quartosDAO.pesquisarQuartos();
+
+               // QuartosDAO quartosDAO = new QuartosDAO();
+                //quartosDAO.deletaQuartos();
+
                 //  PermissaoDAO permissaoDAO = new PermissaoDAO();
                 //  permissaoDAO.inserirPermissao();
 
-                //PermissaoDAO permissaoDAO = new PermissaoDAO();
-                //permissaoDAO.alterarPermissao();
+                //  PermissaoDAO permissaoDAO = new PermissaoDAO();
+                //  permissaoDAO.alterarPermissao();
 
-                 AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
-                 adicionaisDAO.pesquisarAdicionais();
+               // PermissaoDAO permissaoDAO = new PermissaoDAO();
+                //permissaoDAO.pesquisarpermissao();
+
+                 //AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+                 //adicionaisDAO.deletarAdicionais();
 
                 // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
                 //adicionaisDAO.alterarAdicionais();
@@ -63,6 +78,8 @@ public class TesteConexaoDB {
                // AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
                // adicionaisDAO.pesquisarAdicionais();
 
+                //AdicionaisDAO adicionaisDAO = new AdicionaisDAO();
+                //adicionaisDAO.deletarAdicionais();
 
                 //PedidosDAO pedidosDAO = new PedidosDAO();
                 //pedidosDAO.inserirPedidos();
@@ -70,6 +87,13 @@ public class TesteConexaoDB {
                 //PedidosDAO pedidosDAO = new PedidosDAO();
                 //pedidosDAO.alterarPedidos();
 
+                //PedidosDAO pedidosDAO = new PedidosDAO();
+                //pedidosDAO.pesquisarPedidos();
+
+                //PedidosDAO pedidosDAO = new PedidosDAO();
+                //pedidosDAO.deleteUsuarios();
+
+                
 
                 System.out.println("Conexão encerrada!");
             }

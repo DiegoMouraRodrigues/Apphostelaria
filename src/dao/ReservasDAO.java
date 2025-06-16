@@ -9,14 +9,14 @@ import java.sql.ResultSet;
 public class ReservasDAO {
     private Conexao conexao = new Conexao();
 
-    public boolean deleteUsuarios() {
+    public boolean deleteReserva() {
         try {
             Connection conndb = conexao.conectar();
 
-            PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
-            removeUsuarios.setInt(1,1);
+            PreparedStatement deleteReserva = conndb.prepareStatement("DELETE FROM reservas WHERE id = ?");
+            deleteReserva.setInt(1,1);
 
-            int linhaAfetada = removeUsuarios.executeUpdate();
+            int linhaAfetada = deleteReserva.executeUpdate();
             conndb.close();
             return linhaAfetada > 0;
         }
@@ -55,6 +55,24 @@ public class ReservasDAO {
             while (resultado.next()){
 
                 System.out.println();
+            }
+            conndb.close();
+        }
+        catch (Exception erro){
+            System.out.println("Erro ao pesquisar a reserva" + erro);
+        }
+    }
+
+    public void pesquisarReserva() {
+
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement buscarReservas = conndb.prepareStatement("select  from reservas where ");
+            buscarReservas.setInt(1,1);
+            ResultSet resultado = buscarReservas.executeQuery();
+
+            while (resultado.next()){
+
             }
             conndb.close();
         }

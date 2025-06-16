@@ -27,10 +27,10 @@ public class PermissaoDAO {
         try {
             Connection conndb = conexao.conectar();
 
-            PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
-            removeUsuarios.setInt(1,1);
+            PreparedStatement deletaPermissao = conndb.prepareStatement("DELETE FROM permissao WHERE id = ?");
+            deletaPermissao.setInt(1,1);
 
-            int linhaAfetada = removeUsuarios.executeUpdate();
+            int linhaAfetada = deletaPermissao.executeUpdate();
             conndb.close();
             return linhaAfetada > 0;
         }
@@ -62,7 +62,7 @@ public class PermissaoDAO {
 
         try {
             Connection conndb = conexao.conectar();
-            PreparedStatement buscarPermissao = conndb.prepareStatement("select nome, from Permissao where id = ?");
+            PreparedStatement buscarPermissao = conndb.prepareStatement("select nome from Permissao where id = ?");
             buscarPermissao.setInt(1,1);
             ResultSet resultado = buscarPermissao.executeQuery();
 

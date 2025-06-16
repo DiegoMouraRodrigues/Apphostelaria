@@ -39,8 +39,10 @@ public class UsuariosDAO {
       try {
           Connection conndb = conexao.conectar();
 
-          PreparedStatement removeUsuarios = conndb.prepareStatement("update usuarios( nome, email, senha, id_perm_fk) values(?,?,md5(?), ?");
-          removeUsuarios.setInt(1,1);
+          PreparedStatement removeUsuarios = conndb.prepareStatement("DELETE FROM usuarios WHERE id = ?");
+          removeUsuarios.setInt(1,6);
+
+
 
           int linhaAfetada = removeUsuarios.executeUpdate();
           conndb.close();
