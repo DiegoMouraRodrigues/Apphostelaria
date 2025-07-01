@@ -11,6 +11,7 @@ public class UsuariosController {
     //Ao inicializa-lo, o construtor de UsuariosDao() sera executado
     //o que significa quea a camada de controle estara verificando se os parametros
     //necessarios foram informados para que sejam enviadas as requisitos (package DAO -data Acess Object)
+
     public UsuariosController() {
         this.usuariosDao = new UsuariosDAO();
     }
