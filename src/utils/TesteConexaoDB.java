@@ -8,6 +8,7 @@ se os parâmetros como endereço IP do servidor, nome de usuário,
 senha e nome do banco de dados estão corretos, utilizando-se
 o driver JDBC para MySQL*/
 
+import controller.UsuariosController;
 import dao.*;
 import model.*;
 
@@ -17,12 +18,22 @@ import java.sql.PreparedStatement;
 public class TesteConexaoDB {
     public static void main(String[] args) {
         Conexao conexao = new Conexao();
+
+        //novo objeto criado in
+       //(1) Usuarios usuarios = new Usuarios("matheus", "matheus@hotmail.com", "123", 1);
+
         Connection condb = conexao.conectar();
 
         if (condb != null) {
             System.out.println("Conexão estabelcida com sucesso!");
 
             try {
+
+                UsuariosController usuariosController = new UsuariosController();
+                usuariosController.verificarCredenciais("matheus@hotmail.com", "123");
+               //(1) UsuariosDAO usuariosDAO = new UsuariosDAO();
+                //usuariosDAO.autenticarUsuario(usuarios);
+
                 //  UsuariosDAO usuariosDAO = new UsuariosDAO();
                 // usuariosDAO.inserirUsuarios();
 
@@ -31,7 +42,7 @@ public class TesteConexaoDB {
 
                // UsuariosDAO usuariosDAO = new UsuariosDAO();
                // usuariosDAO.pesquisarUsuarios();
-              //  System.out.println("Usuario Inserido com sucesso!");
+              // System.out.println("Usuario Inserido com sucesso!");
 
                 //UsuariosDAO usuariosDAO = new UsuariosDAO();
                 //usuariosDAO.deleteUsuarios();
@@ -92,8 +103,6 @@ public class TesteConexaoDB {
 
                 //PedidosDAO pedidosDAO = new PedidosDAO();
                 //pedidosDAO.deleteUsuarios();
-
-                
 
                 System.out.println("Conexão encerrada!");
             }

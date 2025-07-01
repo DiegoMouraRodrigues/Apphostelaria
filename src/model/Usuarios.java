@@ -1,15 +1,16 @@
 package model;
 
 public class Usuarios extends Pessoa {
-    private String id;
-    private String nome,email,senha,cargo;
+    private int id, id_perm_fk;
+    private String nome,email,senha;
 
-    public Usuarios(String nome, String email, String senha, String cargo) {
+    public Usuarios(String nome, String email, String senha, int id_perm_fk) {
         super(nome,email);
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.cargo = cargo;
+        this.id_perm_fk = id_perm_fk;
+
     }
 
     @Override
@@ -38,5 +39,8 @@ public class Usuarios extends Pessoa {
         this.senha = senha;
     }
 
-    public void setCargo(String cargo) {this.cargo = cargo;}
+    public int getId_perm_fk() {return id_perm_fk;}
+
+    public void setId_perm_fk(int id_perm_fk) {}
+
 }
